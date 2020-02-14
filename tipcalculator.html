@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tip Calculator</title>
+</head>
+<body>
+    <!-- Bill amount-->
+    <div>  
+        <label>
+            Bill Amount
+            <input id="input-bill" type="number" name="bill">
+        </label>
+    </div>  
+    
+    <!-- Tip amount -->
+    <div>
+        <label>
+            Tip amount
+            <input id="input-tip" type="number" name="tip">
+        </label>
+    </div>
+    
+    <!-- Number of people -->
+    <div>
+        <button>-</button>
+        <label>
+            Number of People
+            <input id="input-people" type="number" name="people">
+        </label>
+        <button>+</button>
+    </div>
+
+    <!-- Tip display -->
+    <h1 id="display-tip">Tip</h1>
+    
+    <!-- Total display -->
+    <h1 id="display-total">Total</h1>
+
+    <!-- Code -->
+    <script>
+        const inputBill = document.getElementById('input-bill')
+        const inputTip = document.getElementById('input-tip')
+        const inputPeople = document.getElementById('input-people')
+
+        const displayTip = document.getElementById('display-tip')
+        const displayTotal = document.getElementById('display-total')
+
+        let billAmount = 0
+        let tipAmount = 0
+        let peopleAmount = 0
+
+        inputBill.addEventListener('input', function(e) {
+            calculateTip()  
+        })
+
+        inputTip.addEventListener('input', function(e) {
+            const newTipAmount = parseFloat(e.target.value)
+
+            if (!isNaN(newTipAmount)) {
+                tipAmount = newTipAmount
+            } else {
+                e.target.value = tipAmount
+            }
+
+            calculateTip()
+
+        })
+
+        inputPeople.addEventListener('input', function(e) {
+            const newPeopleAmount = parseFloat(e.target.value)
+
+            if (!isNaN(newPeopleAmount)) {
+                peopleAmount = newPeopleAmount 
+            } else {
+                e.target.value = peopleAmount
+            }
+            
+            calculateTip()
+        
+        })
+        
+        function calculateTip() {
+            const billAmount = parseFloat(inputBill.value)
+
+            const tip = billAmount * tipAmount / 100
+            const total = billAmount + tipAmount
+            const perPerson = total / peopleAmount 
+            console.log('>>>', tip, billAmount, tipAmount, peopleAmount)
+
+
+            // only display tip if tip is a number !isNaN(tip)
+            if (!isNaN(tip)) {
+                displayTip.innerHTML = tip.toFixed(2)
+            } else {
+                displayTip.innerHTML = '-'
+            }
+           
+            if (!isNaN(total)) {
+                displayTotal.innerHTML = total.toFixed(2)
+            }
+               
+            
+            
+        }
+
+    </script>
+</body>
+</html>

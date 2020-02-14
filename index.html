@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>calculator</title>
+
+    <style>
+        
+            body {
+                height: 100%;
+                background-color: #666;
+                color: #fff;
+                font-family: Helvetica;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 0;
+                
+            }
+    
+            .calculator {
+                display: grid;
+                grid-gap: 0;
+                width: 300px;
+                height: 500px;
+                grid-template-columns: repeat(4 , 1fr);
+                grid-template-rows: repeat(6 , 1fr);
+                grid-gap: 0;
+                grid-template-areas: "dis dis dis dis "
+                                     "a b c d"
+                                     "k j i e"
+                                     "n m L f"
+                                     "q p o g"
+                                     "r r s h"
+            }
+    
+            .display {
+                font-size: 4em;
+                font-weight: 100;
+                text-align: right;
+                line-height: 100px;
+                padding-top: 0.25em;
+                padding-bottom: 0.25em;
+                background-color: #444;
+    
+            }
+
+            button {
+                border: none;
+                color: #fff;
+                margin: 1px;
+                font-size: 2em;
+                font-weight: 100;
+                border-radius: 0;
+                background-color: rgb(124, 124, 124);
+                
+            }
+
+            .first-group {
+                background-color: rgb(97, 97, 97);
+            }
+
+            .second-group {
+                background-color: #f90;
+            }
+
+            
+            
+                 
+        </style>
+</head>
+<body>
+   
+    
+    
+        <div class="calculator">
+            
+            <div class="display" style="grid-area: dis; text-align: right">0</div>
+
+            
+            <button style="grid-area: a;" class="first-group" type="click me">C</button>
+            <button style="grid-area: b;" class="first-group" type="click me">+/-</button>
+            <button style="grid-area: c;" class="first-group" type="click me">%</button>
+            
+            
+            <button style="grid-area: d;" class="second-group" type="click me">/</button>
+            <button style="grid-area: e;" class="second-group" type="click me">X</button>
+            <button style="grid-area: f;" class="second-group" type="click me">-</button>
+            <button style="grid-area: g;" class="second-group" type="click me">+</button>
+            <button style="grid-area: h;" class="second-group" type="click me">=</button>
+            
+            <button style="grid-area: i;" class="numbers-group" type="click me">9</button>
+            <button style="grid-area: j;" class="numbers-group" type="click me">8</button>
+            <button style="grid-area: k;" class="numbers-group" type="click me">7</button>
+            <button style="grid-area: L;" class="numbers-group" type="click me">6</button>
+            <button style="grid-area: m;" class="numbers-group" type="click me">5</button>
+            <button style="grid-area: n;" class="numbers-group" type="click me">4</button>
+            <button style="grid-area: o;" class="numbers-group" type="click me">3</button>
+            <button style="grid-area: p;" class="numbers-group" type="click me">2</button>
+            <button style="grid-area: q;" class="numbers-group" type="click me">1</button>
+            <button style="grid-area: r;" class="numbers-group" type="click me">0</button>
+            
+            <button style="grid-area: s;" class="numbers-group">.</button>
+
+            
+
+        </div>
+    
+    </body>
+</html>
